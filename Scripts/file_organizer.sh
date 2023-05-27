@@ -14,14 +14,14 @@ organize_files() {
   find "$directory" -type f -iname "*.docx" -exec mv {} "$directory/documents/" \;
   find "$directory" -type f -iname "*.xlsx" -exec mv {} "$directory/documents/" \;
   find "$directory" -type f -iname "*.pptx" -exec mv {} "$directory/documents/" \;
-  find "$directory" -type f ! \
+  find "$directory" -type f \( ! \
     -iname "*.jpg" \
     -o -iname "*.png" \
     -o -iname "*.txt" \
-    -o -iname "*.pdf"\
-    -o -iname "*.docx"\
-    -o -iname "*.xlsx"\
-    -o -iname "*.pptx" \
+    -o -iname "*.pdf" \
+    -o -iname "*.docx" \
+    -o -iname "*.xlsx" \
+    -o -iname "*.pptx" \) \
     -exec mv {} "$directory/other/" \;
   
   echo "Files organized successfully!"
@@ -67,4 +67,3 @@ while true; do
   
   echo
 done
-
